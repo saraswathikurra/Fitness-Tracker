@@ -16,7 +16,7 @@ router
         } catch (error) {
             res.status(401).send({ message: error.message });
         }
-    })
+    }) 
     .get('/getinfo', async function(req, res) {
         let data = await user.getinfo();
         res.send(data);

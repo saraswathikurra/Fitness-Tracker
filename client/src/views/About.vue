@@ -55,3 +55,9 @@
     
     </body>
 </template>
+
+<style scoped>
+  .card-content img{
+    width: 100%;
+  }
+</style>

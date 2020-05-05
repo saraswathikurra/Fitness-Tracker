@@ -9,6 +9,49 @@
       </div>
     </section>
     
+
+    <section class="columns is-multiline">      
+        <div class="column is-5 is-offset-1">
+          <div class="card">
+            <div class="card-header">
+              <p class="card-header-title"> Personal Fitness Center </p>
+            </div>
+            <div class="card-content">
+              <img src="../assets/img/about01.png">
+            </div>
+          </div>
+        </div>
+        <div class="column is-5">
+          <div class="card">
+            <div class="card-header">
+              <p class="card-header-title"> Health Fitness Club </p>
+            </div>
+            <div class="card-content">
+              <img src="../assets/img/about02.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="column is-5 is-offset-1">
+          <div class="card">
+            <div class="card-header">
+              <p class="card-header-title"> Share Your Body </p>
+            </div>
+            <div class="card-content">
+              <img src="../assets/img/about03.jpg">
+            </div>
+          </div>
+        </div>
+        <div class="column is-5">
+          <div class="card">
+            <div class="card-header">
+              <p class="card-header-title"> Fitness Service Center </p>
+            </div>
+            <div class="card-content">
+              <img src="../assets/img/about04.jpg">
+            </div>
+          </div>
+        </div>
+      </section>
     
     </body>
 </template>

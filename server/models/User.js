@@ -25,15 +25,28 @@ const register = (myinfo) => {
             throw err
         }
     })
-}
+} 
 
+//... edit my profile
 const editprofile = (profile) => {
+    console.log("+++++My profile is+++++");
+    console.log(profile);
 
-
-    delete account[0];
-    account.push(profile);
-    account.splice(0, 1)
-
+    const path = 'server/config/profile.json';  //... npm run dev ---- command to start server with nodemon
+    // const path = './config/profile.json'; //... nodemon   ---- command to start server with nodemon   
+    const jsonProfile = JSON.stringify(profile, null, 2)
+    fs.writeFileSync(path, '', (err) => {
+        if (err) {
+            console.error(err)
+            throw err
+        }
+    })
+    fs.writeFileSync(path, jsonProfile, (err) => {
+        if (err) {
+            console.error(err)
+            throw err
+        } 
+    })
 }
 
 module.exports = {

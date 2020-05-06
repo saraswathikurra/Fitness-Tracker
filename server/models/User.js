@@ -50,13 +50,7 @@ const editprofile = (profile) => {
 }
 
 module.exports = {
-    Login(email, password) {
-        const user = account.find((x) => x.email == email);
-        if (!user) throw Error("You put wrong email.");
-        if (user.password != password) throw Error("You put wrong password");
-        return user;
-    },
-
+    register,
     getinfo,
     editprofile,
-};
+    };

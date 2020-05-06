@@ -17,6 +17,9 @@ router
             res.status(401).send({ message: error.message });
         }
     }) 
+    .post('/register', (req, res) => {
+        res.send(user.register(req.body.myinfo));
+    })
     .get('/getinfo', async function(req, res) {
         let data = await user.getinfo();
         res.send(data);

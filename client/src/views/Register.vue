@@ -13,7 +13,7 @@
                     <input id="country" type="text" v-model="country" placeholder="Country" required>
                     <input id="password" type="password" v-model="password" minlength="6" placeholder="Password" required>
                     <input id="repassword" type="password" v-model="repassword" minlength="6" placeholder="Retype Your Password" required>
-                     <button type="button" class="button is-dark is-large is-fullwidth has-text-centered"> Register </button><br>
+                     <button type="submit" class="button is-dark is-large is-fullwidth has-text-centered"> Register </button><br>
                      <div class="has-text-centered">
                         <div class=".has-margin-top-5"> Have an account? </div>
                         <div> Click <router-link to="/login"> here </router-link> to login</div> 
@@ -25,6 +25,7 @@
 </template>
 
 <script>
+import axios from "axios";
 
 export default {
     data(){
@@ -46,16 +47,28 @@ export default {
 	},
     methods: {
         signup(){
+            if(this.password != this.repassword){
+                alert('Password does not matched!');
+                return false;
+            }
             const myinfo = {
-                firstnam: this.firstname,
+                firstname: this.firstname,
                 lastname: this .lastname,
                 email: this.email,
                 phoneNumber: this.phoneNumber,
                 country: this.country,
                 password: this.password,                
             }
+            axios.post(`${this.url}user/register`,{
+                myinfo : myinfo
+            })
+            .then(res => {
+                alert ("You signed up successfully.")
+                this.$router.push('./login')
+            })
         }
-    }
+    },
+    
 }
 </script>
 

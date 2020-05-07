@@ -7,41 +7,41 @@
             Edit the profile
         </header>
 
-        <form @submit.prevent="editprofile" autocomplete="off" v-for="profile in profiles" :key="profile.id">
+        <form @submit.prevent="editprofile" autocomplete="off">
             <div class="field">
                 <label class="label"> First Name </label>
                 <div class="control">
-                    <input class="input" type="text" v-model="profile.firstname" placeholder="Enter the first name" autocomplete="off">
+                    <input class="input" type="text" v-model="firstname" placeholder="Enter the first name" autocomplete="off">
                 </div>
             </div>
             <div class="field">
                 <label class="label"> Last Name </label>
                 <div class="control">
-                    <input class="input" type="text" v-model="profile.lastname" placeholder="Enter the last name" autocomplete="off">
+                    <input class="input" type="text" v-model="lastname" placeholder="Enter the last name" autocomplete="off">
                 </div>
             </div>
             <div class="field">
                 <label class="label"> Email </label>
                 <div class="control">
-                    <input class="input" type="email" v-model="profile.email" placeholder="Enter the email" autocomplete="off">
+                    <input class="input" type="email" v-model="email" placeholder="Enter the email" autocomplete="off">
                 </div>
             </div>
             <div class="field">
                 <label class="label"> Phone Number </label>
                 <div class="control">
-                    <input class="input" type="number" maxlength="10" minlength="10" v-model="profile.phoneNumber" placeholder="Enter the phone number" autocomplete="off">
+                    <input class="input" type="number" maxlength="10" minlength="10" v-model="phoneNumber" placeholder="Enter the phone number" autocomplete="off">
                 </div>
             </div>
             <div class="field">
                 <label class="label"> Country </label>
                 <div class="control">
-                    <input class="input" type="text" v-model="profile.country" placeholder="Enter the country" autocomplete="off">
+                    <input class="input" type="text" v-model="country" placeholder="Enter the country" autocomplete="off">
                 </div>
             </div>
             <div class="field">
                 <label class="label"> Password </label>
                 <div class="control">
-                    <input class="input" :type="passwordFieldType" v-model="profile.password" placeholder="Enter the password" autocomplete="off">
+                    <input class="input" :type="passwordFieldType" v-model="password" placeholder="Enter the password" autocomplete="off">
                     <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password" @click="switchVisibility"></span>
                 </div>
             </div>
@@ -85,29 +85,34 @@ import axios from "axios";
         getprofile(){
             axios.get(`${this.url}user/getinfo`)
             .then(res => {
-                console.log(res.data);
                 this.profiles = res.data;
+                this.firstname = res.data.firstname;
+                this.lastname = res.data.lastname;
+                this.email = res.data.email;
+                this.phoneNumber = res.data.phoneNumber;
+                this.country = res.data.country;
+                this.password = res.data.password;
             })
         },
 
-        editprofile(){
+        editprofile(){ 
             const profile = {
-                firstname: this.profiles[0].firstname,
-                lastname : this.profiles[0].lastname,
-                email : this.profiles[0].email,
-                phoneNumber : this.profiles[0].phoneNumber,
-                country : this.profiles[0].country,
-                password : this.profiles[0].password,
+                firstname: this.firstname,
+                lastname : this.lastname,
+                email : this.email,
+                phoneNumber : this.phoneNumber,
+                country : this.country,
+                password : this.password,
             }
             axios.post(`${this.url}user/editprofile`,
             {
                 profile:profile
             })
-            
             .then(res => {
-                console.log(res.data);
                 this.profiles = res.data;
                 this.getprofile();
+                alert ("The profile is updated successfully.")
+                history.go(0);
             })
         },
     },

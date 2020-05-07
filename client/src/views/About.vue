@@ -17,7 +17,7 @@
               <p class="card-header-title"> Personal Fitness Center </p>
             </div>
             <div class="card-content">
-              <img src="../assets/img/about01.png">
+              <img src="../">
             </div>
           </div>
         </div>

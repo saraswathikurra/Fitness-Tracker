@@ -125,7 +125,7 @@
   export default {
     data: function() {
       return {
-        'title': 'Diet Plans , following Exercises and also offered by us.'
+        'title': 'Plans for following activities are offered by us'
       }
     }
   }

@@ -433,7 +433,7 @@
     export default {
         data: function() {
             return {
-                'title': 'Your body hears everything that your mind says.'
+                'title': 'Challege your friends on facebook by sharing the following:'
             }
         }
     }

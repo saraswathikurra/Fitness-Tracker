@@ -55,12 +55,14 @@ export default {
         login(){
         axios.post(`${this.apiUrl}user/login`, this.user)
             .then(res => {
-                if (res.statusText === "OK") {
+                console.log(res.data.message)
+                if (res.data.message === "OK") {
                     localStorage.setItem("user", JSON.stringify(res.data));
                     localStorage.setItem("isLogin", "true");
                     this.$router.push("/index");
                     this.$router.go()
                 } else {
+                    this.$router.go();
                 }
             })
             .catch(err => console.log(err));

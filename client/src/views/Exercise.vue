@@ -2,7 +2,7 @@
 	<section class="section">
 		<div class="box">
 			<div class="columns is-multiline">
-				<div class="column is-8 is-half-tablet">
+				<div class="column is-6 is-half-tablet">
 					<header class="title has-text-centered is-info">
 						My Exercise Logs
 					</header>
@@ -29,7 +29,7 @@
 						</table>
 					</div>
 				</div>
-				<div class="column is-4 is-half-tablet">
+				<div class="column is-3 is-half-tablet">
 					<header class="title has-text-centered is-info">
 						Calories for exercise.
 					</header>
@@ -56,15 +56,35 @@
 						</div>
 					</form>
 				</div>
+				<div class="column is-3 is-half-tablet">
+					<header class="title has-text-centered is-info">
+						Get the exercise
+					</header>
+					<div class="field">
+						<input type="text" @keydown="getvalue">
+						<select v-for="item in result" :key="item.id">
+							<option> {{item}} </option>
+						</select>
+						<!-- <select class="input" v-model="getExercise" keydown="getexer" required>
+							<option disabled> Input an exercise name </option>
+							<option v-for="exercise in results" :key="exercise.id">
+								{{exercise.name}}
+							</option>
+						</select> -->
+					</div>
+				</div>
 			</div>
 		</div>
 	</section>
 </template>
 <script>
 import axios from "axios";
+// import vSelect from "../src/components/Select";
     export default {
     	 data() {
 		    return {
+				name: [],
+				result: [],
 				exercises: [],
 				names: [
 					{
@@ -111,6 +131,14 @@ import axios from "axios";
 		},
 
 		methods: {
+			getvalue(){
+
+				axios.post(`${this.url}exercise/getvalue`,{ inputvalue: this.inputvalue})
+				.then(({data})=>{
+					console.log('input')
+					this.result = data;
+				});
+			},
 			getallexercises(){
 				axios.get(`${this.url}exercise/allexercise`)
 				
@@ -136,7 +164,7 @@ import axios from "axios";
 					this.getallexercises();
 					window.location.reload();
 				})
-			}
+			},
 		},
 
 		props: {

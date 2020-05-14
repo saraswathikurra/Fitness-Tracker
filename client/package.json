@@ -13,8 +13,10 @@
         "bulma": "^0.8.0",
         "core-js": "^3.6.4",
         "cors": "^2.8.5",
+        "mysql": "^2.18.1",
         "vue": "^2.6.11",
         "vue-router": "^3.1.5",
+        "vue-select": "^3.10.3",
         "vue-social-sharing": "^2.4.7"
     },
     "devDependencies": {

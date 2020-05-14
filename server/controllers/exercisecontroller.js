@@ -10,7 +10,14 @@ router
         res.send(data);
     })
     .post("/postexercise", (req, res) => {
-        res.send(exercises.postExercise(req.body.newexercise))
+        res.send(exercises.postExercise(req.body.newexercise));
+
+    })
+
+    .post("/getvalue", (req, res) => {
+        console.log(req.body.inputvalue)
+
+        res.send(exercises.postExercise())
     })
 
 module.exports = router;

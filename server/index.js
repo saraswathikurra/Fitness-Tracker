@@ -17,6 +17,21 @@ app.use(function(req, res, next) {
 });
 app.use(cors());
 
+var mysql = require('mysql');
+
+var con = mysql.createConnection({
+  host: "localhost",
+  user: "root",
+  password: ""
+});
+
+con.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+
+});
+
+
 app
     .use(express.json())
     .use(express.urlencoded({ extended: true }))

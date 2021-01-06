@@ -9,7 +9,7 @@
     "dependencies": {
         "@fortawesome/fontawesome": "^1.1.8",
         "@fortawesome/fontawesome-free": "^5.12.1",
-        "axios": "^0.19.2",
+        "axios": "^0.21.1",
         "bulma": "^0.8.0",
         "core-js": "^3.6.4",
         "cors": "^2.8.5",
